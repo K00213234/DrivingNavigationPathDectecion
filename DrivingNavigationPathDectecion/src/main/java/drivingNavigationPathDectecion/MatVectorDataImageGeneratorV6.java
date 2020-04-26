@@ -19,12 +19,6 @@ import org.opencv.imgproc.Imgproc;
 public class MatVectorDataImageGeneratorV6 implements VectorDataImageGenerator
 {
 
-	private int DELAY_CAPTION = 100;
-	private int DELAY_BLUR = 100;
-	private int MAX_KERNEL_LENGTH = 10;
-	private Mat dst = new Mat();
-	private String windowName = "Filter Demo 1";
-	private Mat mat = new Mat();
 	private BufferedImage img;
 	private JPanel displayJPanel;
 	private List<Point> pointArray1 = new ArrayList<Point>();
@@ -47,7 +41,6 @@ public class MatVectorDataImageGeneratorV6 implements VectorDataImageGenerator
 	//
 	public BufferedImage getImage(Mat mat)
 	{
-		dst = mat;
 		mat = dectectLinesInImageData(mat);
 
 		getSpace(mat);

@@ -7,21 +7,28 @@ import org.opencv.core.Core;
 
 public class CameraUserDisplay extends JFrame
 {
-	private static final long serialVersionUID = 1L;
 	public static LogService LogService = new LogService();
-	private JPanel contentPane;
-	private static final String ANSI_RED_BACKGROUND = "\u001B[41m";
-	private int stopper = 4;
-	CameraVideoProcessManager videoCap;
-
 	static
 	{
 		LogService.log("Loading library:" + Core.NATIVE_LIBRARY_NAME);
 		nu.pattern.OpenCV.loadShared();
 	}
+	//
+	// singleton
+	//
+    private static final CameraUserDisplay INSTANCE = new CameraUserDisplay();
+    public static CameraUserDisplay getInstance() {
+        return INSTANCE;
+    }
 
 
-	public CameraUserDisplay()
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	CameraVideoProcessManager videoCap;
+
+
+
+	private CameraUserDisplay()
 	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
