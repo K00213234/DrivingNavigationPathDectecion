@@ -16,17 +16,12 @@ public class CameraUserDisplay extends JFrame
 	//
 	// singleton
 	//
-    private static final CameraUserDisplay INSTANCE = new CameraUserDisplay();
-    public static CameraUserDisplay getInstance() {
-        return INSTANCE;
-    }
+	private static final CameraUserDisplay INSTANCE = new CameraUserDisplay();
 
-
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	CameraVideoProcessManager videoCap;
-
-
+	public static CameraUserDisplay getInstance()
+	{
+		return INSTANCE;
+	}
 
 	private CameraUserDisplay()
 	{
@@ -43,8 +38,11 @@ public class CameraUserDisplay extends JFrame
 		int height = videoCap.getOneFrame().getHeight();
 		int width = videoCap.getOneFrame().getWidth();
 		log("height" + height + "width " + width);
-
 	}
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	CameraVideoProcessManager videoCap;
 
 	private void log(String text)
 	{
