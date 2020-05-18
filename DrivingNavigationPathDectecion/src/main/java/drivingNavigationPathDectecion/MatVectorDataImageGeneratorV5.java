@@ -342,7 +342,7 @@ public class MatVectorDataImageGeneratorV5 implements VectorDataImageGenerator
 	Point getPointAtAngle(Point position, double angle)
 	{
 //Slope 45
-		Point pointIntheDistance = GeometryMethods.pointIntheDistance(position);
+		Point pointIntheDistance = GeometryMethods.pointSquaredIntheDistance(position);
 
 		double lineDistance = GeometryMethods.pythagoreanDistance(position, pointIntheDistance);
 
