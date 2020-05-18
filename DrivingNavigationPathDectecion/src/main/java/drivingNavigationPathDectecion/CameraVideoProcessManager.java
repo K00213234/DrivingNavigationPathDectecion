@@ -6,21 +6,26 @@ import javax.swing.JPanel;
 import org.opencv.core.Mat;
 import org.opencv.videoio.VideoCapture;
 
+public class CameraVideoProcessManager
+{
 
-public class CameraVideoProcessManager {
-
-	private final int cameraDeviceNumber=1;
-	private VideoCapture videoCapture;
+	private final int cameraDeviceNumber = 1;
 	private VectorDataImageGenerator vectorDataImageGenerator;
-	
-	CameraVideoProcessManager(JPanel displayJPanel) {
-		vectorDataImageGenerator = new MatVectorDataImageGeneratorV6 (displayJPanel);
+	private VideoCapture videoCapture;
+
+	CameraVideoProcessManager(JPanel displayJPanel)
+	{
+		vectorDataImageGenerator = new MatVectorDataImageGeneratorV6(displayJPanel);
 		videoCapture = new VideoCapture();
 		videoCapture.open(cameraDeviceNumber);
 	}
-	BufferedImage getOneFrame() {
+
+	BufferedImage getOneFrame()
+	{
+		
 		Mat imageData = new Mat();
 		videoCapture.read(imageData);
 		return vectorDataImageGenerator.getImage(imageData);
 	}
+
 }
